@@ -6,10 +6,10 @@ export interface ICard {
     processor: string,
     size: number,
     popularly: boolean,
-    amount: number,
     price: number,
 }
 export interface IBasket {
+    id: number,
     name: string,
     amount: number,
     price: number,
