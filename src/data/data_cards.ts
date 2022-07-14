@@ -14,7 +14,7 @@ export const data = [
     id: 2,
     name: 'Palit RTX 3080 Ti',
     quantity: 5,
-    brand: 'Palit ',
+    brand: 'Palit',
     processor: 'NVIDIA',
     size: 12,
     popularly: false,
