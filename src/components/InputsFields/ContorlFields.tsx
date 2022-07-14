@@ -26,12 +26,12 @@ const ContorlFields: FC<IContorlFields> = ({ query, select, changeQuery, changeS
       <FormControl fullWidth sx={{ textAlign: 'start' }}>
         <InputLabel>Сортировка</InputLabel>
         <Select value={select} label='Сортировка' onChange={changeSelect}>
-          <MenuItem value={'[name,true]'}>Имя, по возрастанию</MenuItem>
-          <MenuItem value={'[name,false]'}>Имя, по убыванию</MenuItem>
-          <MenuItem value={'[quantity,true]'}>Количество, по возрастанию</MenuItem>
-          <MenuItem value={'[quantity,false]'}>Количество, по убыванию </MenuItem>
-          <MenuItem value={'[price,true]'}>Цена, по возрастанию</MenuItem>
-          <MenuItem value={'[price,false]'}>Цена, по убыванию</MenuItem>
+          <MenuItem value={'["name",false]'}>Имя, A-Z</MenuItem>
+          <MenuItem value={'["name",true]'}>Имя, Z-A</MenuItem>
+          <MenuItem value={'["quantity",true]'}>Количество, по возрастанию</MenuItem>
+          <MenuItem value={'["quantity",false]'}>Количество, по убыванию </MenuItem>
+          <MenuItem value={'["price",true]'}>Цена, по возрастанию</MenuItem>
+          <MenuItem value={'["price",false]'}>Цена, по убыванию</MenuItem>
         </Select>
       </FormControl>
       <Box>
