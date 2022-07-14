@@ -8,24 +8,39 @@ import Item from '../util/Item';
 
 interface IFilters extends IFiltersByValue, IContorlFields, IFiltersByRange {}
 const Filters: FC<IFilters> = ({
-  filters,
   quantity,
   price,
   query,
   select,
-  handleFilter,
+  brand,
+  size,
+  processor,
+  popularly,
   changeQuantity,
   changePrice,
   changeQuery,
   changeSelect,
   setQuery,
+  changeBrand,
+  changeSize,
+  changeProcessor,
+  changePopularly,
 }) => {
   return (
     <Box sx={{ mt: 2 }}>
       <Grid container spacing={2} columns={18}>
         <Grid item xs={18} md={18} lg={8}>
           <Item>
-            <FiltersByValue filters={filters} handleFilter={handleFilter} />
+            <FiltersByValue
+              brand={brand}
+              size={size}
+              processor={processor}
+              popularly={popularly}
+              changeBrand={changeBrand}
+              changeSize={changeSize}
+              changeProcessor={changeProcessor}
+              changePopularly={changePopularly}
+            />
           </Item>
         </Grid>
         <Grid item xs={18} md={9} lg={5}>
