@@ -1,5 +1,5 @@
-import { Toolbar, Typography, Link, Container } from '@mui/material';
 import { memo } from 'react';
+import { Toolbar, Typography, Link, Container } from '@mui/material';
 
 const Footer = () => (
   <Container maxWidth='xl'>

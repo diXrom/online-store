@@ -7,6 +7,7 @@ export interface ISearchField {
   changeQuery: (e: React.ChangeEvent<HTMLInputElement>) => void;
   setQuery: (value: React.SetStateAction<string>) => void;
 }
+
 const SearchField: FC<ISearchField> = ({ query, changeQuery, setQuery }) => {
   const closeBtn = {
     endAdornment: (
@@ -14,12 +15,6 @@ const SearchField: FC<ISearchField> = ({ query, changeQuery, setQuery }) => {
         <Close fontSize='small' />
       </IconButton>
     ),
-  };
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter') {
-      console.log(query);
-      setQuery('');
-    }
   };
   return (
     <TextField
@@ -30,7 +25,6 @@ const SearchField: FC<ISearchField> = ({ query, changeQuery, setQuery }) => {
       label='Поиск'
       value={query}
       onChange={changeQuery}
-      onKeyDown={handleKeyDown}
       InputProps={query ? closeBtn : undefined}
     />
   );

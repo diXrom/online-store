@@ -1,14 +1,16 @@
 import { FC, memo } from 'react';
 import { Box, Grid, Typography } from '@mui/material';
-import { IBasket, ICard } from '../types';
-import CardItem from './CardItem';
 import { SentimentVeryDissatisfied } from '@mui/icons-material';
+
+import CardItem from './CardItem';
+import { IBasket, ICard } from '../types';
 
 interface ICardList {
   cards: ICard[];
   basket: IBasket[];
   setBasket: (value: React.SetStateAction<IBasket[]>) => void;
 }
+
 const ErrorMessage: FC = () => (
   <Box sx={{ m: '50px auto' }}>
     <Typography variant='h5' component='div' color='primary' sx={{ display: 'flex', alignItems: 'center' }}>

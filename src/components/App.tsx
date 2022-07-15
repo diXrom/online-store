@@ -6,6 +6,7 @@ import Filter from './Filter';
 import Header from './Header';
 import Footer from './Footer';
 import CardList from './CardList';
+import ModalInfo from './Modal';
 
 import useFilterByName from '../hooks/useFilterByName';
 import useInitialFilters from '../hooks/useInitialFilters';
@@ -15,7 +16,6 @@ import useShowModal from '../hooks/useShowModal';
 
 import theme from '../util/theme';
 import { IBasket } from '../types';
-import ModalInfo from './Modal';
 
 const App: FC = () => {
   const [basket, setBasket] = useLocalStorage<IBasket[]>([], 'basket');
@@ -23,6 +23,7 @@ const App: FC = () => {
   const filteredCards = useFilter(filters);
   const { availableItems, ...query } = useFilterByName(filteredCards);
   const modal = useShowModal(basket);
+  
   return (
     <ThemeProvider theme={theme}>
       <Header basket={basket} />

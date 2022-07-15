@@ -7,6 +7,5 @@ export default function useDebounce<T>(value: T, delay: number) {
     const handler = setTimeout(() => setValue(value), delay);
     return () => clearTimeout(handler);
   }, [value, delay]);
-
   return debValue;
 }

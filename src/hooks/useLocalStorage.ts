@@ -5,13 +5,11 @@ const useLocalStorage = <T>(initialValue: T, key: string): [T, React.Dispatch<Re
     const storage = localStorage.getItem(key);
     return storage ? JSON.parse(storage) : initialValue;
   };
-
   const [value, setValue] = useState(getValue);
 
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(value));
   }, [value, key]);
-
   return [value, setValue];
 };
 

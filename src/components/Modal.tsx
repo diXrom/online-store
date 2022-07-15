@@ -14,10 +14,12 @@ const modal = {
   boxShadow: 24,
   p: 4,
 };
+
 interface IModalInfo {
   open: boolean;
   handleClose: () => void;
 }
+
 const ModalInfo: FC<IModalInfo> = ({ open, handleClose }) => (
   <div>
     <Modal

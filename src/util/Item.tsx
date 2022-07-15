@@ -7,4 +7,5 @@ const Item = styled(Paper)(({ theme }) => ({
   color: 'white',
   border: '2px solid #000',
 }));
+
 export default Item;

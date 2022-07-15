@@ -1,3 +1,4 @@
+import { FC, useEffect, useState } from 'react';
 import {
   Card,
   CardContent,
@@ -13,7 +14,7 @@ import {
   Fade,
   Grid,
 } from '@mui/material';
-import { FC, useEffect, useState } from 'react';
+
 import { IBasket, ICard } from '../types';
 import { getAmount } from '../util/helperFunctions';
 
@@ -132,4 +133,5 @@ const CardItem: FC<ICardItem> = ({
     </Fade>
   );
 };
+
 export default CardItem;

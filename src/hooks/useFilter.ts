@@ -1,8 +1,8 @@
-
 import { useMemo } from 'react';
+
 import { data } from '../data/data_cards';
-import { ICard, IFilters } from '../types';
 import { compareType } from '../util/helperFunctions';
+import { ICard, IFilters } from '../types';
 
 const useFilter = ({
   brand,

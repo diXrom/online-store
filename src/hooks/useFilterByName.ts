@@ -1,7 +1,6 @@
-import { ICard } from '../types';
-
 import useDebounce from './useDebounce';
 import useLocalStorage from './useLocalStorage';
+import { ICard } from '../types';
 
 const useFilterByName = (items: ICard[]) => {
   const [query, setQuery] = useLocalStorage('', 'query');

@@ -1,4 +1,5 @@
 import { SelectChangeEvent } from '@mui/material';
+
 import useLocalStorage from './useLocalStorage';
 
 const useInitialFilters = () => {
