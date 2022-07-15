@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 import { FC, useEffect, useState } from 'react';
 import { IBasket, ICard } from '../types';
+import { getAmount } from '../util/helperFunctions';
 
 interface ICardItem extends ICard {
   basket: IBasket[];
@@ -32,7 +33,8 @@ const CardItem: FC<ICardItem> = ({
   basket,
   setBasket,
 }) => {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(true);
+  const [disable, setDisable] = useState(false);
   const addCard = () => {
     setBasket((cards) => {
       if (cards.every((card) => card.id !== id)) return [...cards, { id, name, amount: 1, price }];
@@ -54,7 +56,9 @@ const CardItem: FC<ICardItem> = ({
   };
   useEffect(() => {
     const card = basket.find((item) => item.id === id);
-    card ? setActive(true) : setActive(false);
+    const amount = getAmount(basket, 'amount');
+    amount === 20 ? setDisable(true) : setDisable(false);
+    card ? setActive(false) : setActive(true);
   }, [basket, id]);
 
   return (
@@ -64,11 +68,11 @@ const CardItem: FC<ICardItem> = ({
           sx={{
             maxWidth: 400,
             bgcolor: '#F7F7F7',
-            border: active ? '2px solid #F3E600' : '2px solid #000',
+            border: active ? '2px solid #000' : '2px solid #F3E600',
           }}
           color='primary'
         >
-          <CardActionArea onClick={addCard}>
+          <CardActionArea onClick={addCard} disabled={disable}>
             <CardMedia
               sx={{ objectFit: 'contain' }}
               component='img'
@@ -100,12 +104,19 @@ const CardItem: FC<ICardItem> = ({
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button onClick={addCard} size='small' color='info' variant='contained' sx={{ fontSize: 15 }}>
+            <Button
+              onClick={addCard}
+              disabled={disable}
+              size='small'
+              color='info'
+              variant='contained'
+              sx={{ fontSize: 15 }}
+            >
               Добавить
             </Button>
             <Button
               sx={{ fontSize: 15 }}
-              disabled={!active}
+              disabled={active}
               size='small'
               color='primary'
               variant='contained'
