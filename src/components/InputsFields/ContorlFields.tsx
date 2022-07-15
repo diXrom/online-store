@@ -21,13 +21,13 @@ export interface IContorlFields {
   setQuery: (value: React.SetStateAction<string>) => void;
   setBasket: (value: React.SetStateAction<IBasket[]>) => void;
   setAllFilters: (
+    selectInit?: string,
     brandInit?: () => never[],
     sizeInit?: () => never[],
     processorInit?: () => never[],
     popularlyInit?: () => never[],
     quantityInit?: number[],
     priceInit?: number[],
-    selectInit?: string,
   ) => void;
 }
 const ContorlFields: FC<IContorlFields> = ({
@@ -58,7 +58,7 @@ const ContorlFields: FC<IContorlFields> = ({
           <Button
             onClick={() => {
               setQuery('');
-              setAllFilters();
+              setAllFilters(select);
             }}
           >
             Сброс фильтров

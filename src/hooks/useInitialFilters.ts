@@ -32,13 +32,14 @@ const useInitialFilters = () => {
     setSelect(e.target.value);
   };
   const setAllFilters = (
+    selectInit = '',
     brandInit = () => [],
     sizeInit = () => [],
     processorInit = () => [],
     popularlyInit = () => [],
     quantityInit = [0, 10],
     priceInit = [0, 200],
-    selectInit = '') => {
+  ) => {
     setBrand(brandInit);
     setSize(sizeInit);
     setProcessor(processorInit);
