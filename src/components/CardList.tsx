@@ -1,20 +1,31 @@
 import { FC, memo } from 'react';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import { IBasket, ICard } from '../types';
 import CardItem from './CardItem';
+import { SentimentVeryDissatisfied } from '@mui/icons-material';
 
 interface ICardList {
   cards: ICard[];
   basket: IBasket[];
-  setBasket:(value: React.SetStateAction<IBasket[]>)=> void
+  setBasket: (value: React.SetStateAction<IBasket[]>) => void;
 }
-const CardList: FC<ICardList> = ({ cards,basket,setBasket}) => {
+const ErrorMessage: FC = () => (
+  <Box sx={{ m: '50px auto' }}>
+    <Typography variant='h5' component='div' color='primary' sx={{ display: 'flex', alignItems: 'center' }}>
+      <SentimentVeryDissatisfied /> Извините, совпадений не обнаружено
+    </Typography>
+  </Box>
+);
+
+const CardList: FC<ICardList> = ({ cards, basket, setBasket }) => {
   return (
     <Box sx={{ mt: 2 }}>
-      <Grid container rowSpacing={3} columnSpacing={1} >
-        {cards.map((card) => (
-          <CardItem key={card.id} {...card} basket={basket} setBasket={setBasket} />
-        ))}
+      <Grid container rowSpacing={3} columnSpacing={1} sx={{ justifyContent: 'center' }}>
+        {cards.length ? (
+          cards.map((card) => <CardItem key={card.id} {...card} basket={basket} setBasket={setBasket} />)
+        ) : (
+          <ErrorMessage />
+        )}
       </Grid>
     </Box>
   );

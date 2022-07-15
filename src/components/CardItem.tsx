@@ -62,7 +62,6 @@ const CardItem: FC<ICardItem> = ({
       <Grid item xs={12} md={6} lg={3}>
         <Card
           sx={{
-            m: 'auto',
             maxWidth: 400,
             bgcolor: '#F7F7F7',
             border: active ? '2px solid #F3E600' : '2px solid #000',
