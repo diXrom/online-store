@@ -14,3 +14,12 @@ export interface IBasket {
     amount: number,
     price: number,
 }
+export interface IFilters {
+    brand: string[];
+    size: number[];
+    processor: string[];
+    popularly: boolean[];
+    quantity: number[];
+    price: number[];
+    select: string;
+}
