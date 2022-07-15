@@ -33,10 +33,10 @@ const ModalInfo: FC<IModalInfo> = ({ open, handleClose }) => (
     >
       <Fade in={open}>
         <Box sx={modal}>
-          <Typography id='transition-modal-title' variant='h6' component='h2'>
+          <Typography variant='h6' component='h2'>
             Извините, корзина заполнена
           </Typography>
-          <Typography id='transition-modal-description' sx={{ mt: 2 }}>
+          <Typography  sx={{ mt: 2 }}>
             Дальнейшие операции с корзиной недоступны, удалите некоторые товары или оформите текущий заказ
           </Typography>
         </Box>
