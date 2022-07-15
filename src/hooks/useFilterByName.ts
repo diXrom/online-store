@@ -1,11 +1,11 @@
-import { useState } from 'react';
 import { ICard } from '../types';
 
 import useDebounce from './useDebounce';
+import useLocalStorage from './useLocalStorage';
 
 const useFilterByName = (items: ICard[]) => {
-  const [query, setQuery] = useState('');
-  const queryDebounce = useDebounce(query, 300);
+  const [query, setQuery] = useLocalStorage('', 'query');
+  const queryDebounce = useDebounce(query, 400);
   const changeQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
   };

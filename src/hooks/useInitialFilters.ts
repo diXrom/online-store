@@ -1,14 +1,14 @@
 import { SelectChangeEvent } from '@mui/material';
-import { useState } from 'react';
+import useLocalStorage from './useLocalStorage';
 
 const useInitialFilters = () => {
-  const [quantity, setQuantity] = useState<number[]>([0, 10]);
-  const [price, setPrice] = useState<number[]>([0, 200]);
-  const [select, setSelect] = useState('');
-  const [brand, setBrand] = useState<string[]>(() => []);
-  const [size, setSize] = useState<number[]>(() => []);
-  const [processor, setProcessor] = useState<string[]>(() => []);
-  const [popularly, setPopularly] = useState<boolean[]>(() => []);
+  const [quantity, setQuantity] = useLocalStorage<number[]>([0, 10], 'quantity');
+  const [price, setPrice] = useLocalStorage<number[]>([0, 200], 'price');
+  const [select, setSelect] = useLocalStorage('', 'select');
+  const [brand, setBrand] = useLocalStorage<string[]>([], 'brand');
+  const [size, setSize] = useLocalStorage<number[]>([], 'size');
+  const [processor, setProcessor] = useLocalStorage<string[]>([], 'processor');
+  const [popularly, setPopularly] = useLocalStorage<boolean[]>([], 'popularly');
 
   const changeBrand = (e: React.MouseEvent<HTMLElement>, newBrand: string[]) => {
     setBrand(newBrand);

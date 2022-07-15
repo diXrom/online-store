@@ -68,6 +68,7 @@ const ContorlFields: FC<IContorlFields> = ({
               setAllFilters();
               setQuery('');
               setBasket([]);
+              localStorage.clear();
             }}
           >
             Сброс всего
