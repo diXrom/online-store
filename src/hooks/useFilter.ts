@@ -2,16 +2,7 @@
 import { useMemo } from 'react';
 import { data } from '../data/data_cards';
 import { ICard, IFilters } from '../types';
-
-const compareType = (itemA: string | number | boolean, itemB: string | number | boolean, isAsc: boolean) => {
-  if (typeof itemA === 'string' && typeof itemB === 'string') {
-    return isAsc ? itemB.localeCompare(itemA) : itemA.localeCompare(itemB);
-  }
-  if (typeof itemA === 'number' && typeof itemB === 'number') {
-    return isAsc ? itemA - itemB : itemB - itemA;
-  }
-  return 0;
-};
+import { compareType } from '../util/helperFunctions';
 
 const useFilter = ({
   brand,
