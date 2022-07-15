@@ -1,11 +1,7 @@
 import { SelectChangeEvent } from '@mui/material';
 import { useState } from 'react';
 
-import { ICard, IBasket } from '../types';
-
-export function useInitialState() {
-  const [cards, setCards] = useState<ICard[]>([]);
-  const [basket, setBasket] = useState<IBasket[]>([]);
+const useInitialFilters = () => {
   const [quantity, setQuantity] = useState<number[]>([0, 10]);
   const [price, setPrice] = useState<number[]>([0, 200]);
   const [select, setSelect] = useState('');
@@ -13,7 +9,6 @@ export function useInitialState() {
   const [size, setSize] = useState<number[]>(() => []);
   const [processor, setProcessor] = useState<string[]>(() => []);
   const [popularly, setPopularly] = useState<boolean[]>(() => []);
-  const filters = { brand, size, processor, popularly };
 
   const changeBrand = (e: React.MouseEvent<HTMLElement>, newBrand: string[]) => {
     setBrand(newBrand);
@@ -36,14 +31,27 @@ export function useInitialState() {
   const changeSelect = (e: SelectChangeEvent) => {
     setSelect(e.target.value);
   };
+  const setAllFilters = (
+    brandInit = () => [],
+    sizeInit = () => [],
+    processorInit = () => [],
+    popularlyInit = () => [],
+    quantityInit = [0, 10],
+    priceInit = [0, 200],
+    selectInit = '') => {
+    setBrand(brandInit);
+    setSize(sizeInit);
+    setProcessor(processorInit);
+    setPopularly(popularlyInit);
+    setQuantity(quantityInit);
+    setPrice(priceInit);
+    setSelect(selectInit);
+  };
   return {
     brand,
     size,
     processor,
     popularly,
-    cards,
-    basket,
-    filters,
     quantity,
     price,
     select,
@@ -54,7 +62,7 @@ export function useInitialState() {
     changeQuantity,
     changePrice,
     changeSelect,
-    setCards,
-    setBasket,
+    setAllFilters,
   };
-}
+};
+export default useInitialFilters;
