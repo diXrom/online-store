@@ -3,12 +3,12 @@ import { useMemo } from 'react';
 import { data } from '../data/data_cards';
 import { ICard, IFilters } from '../types';
 
-const compareType = (itemA: string | number | boolean, itemB: string | number | boolean, bool: boolean) => {
+const compareType = (itemA: string | number | boolean, itemB: string | number | boolean, isAsc: boolean) => {
   if (typeof itemA === 'string' && typeof itemB === 'string') {
-    return !bool ? itemA.localeCompare(itemB) : itemB.localeCompare(itemA);
+    return isAsc ? itemB.localeCompare(itemA) : itemA.localeCompare(itemB);
   }
   if (typeof itemA === 'number' && typeof itemB === 'number') {
-    return !bool ? itemB - itemA : itemA - itemB;
+    return isAsc ? itemA - itemB : itemB - itemA;
   }
   return 0;
 };
@@ -33,10 +33,10 @@ const useFilter = ({
   return useMemo(() => {
     if (!select) return filteredCards;
     const sortCards = [...filteredCards].sort((cardA, cardB) => {
-      const [key, bool]: [keyof ICard, boolean] = JSON.parse(select);
+      const [key, isAsc]: [keyof ICard, boolean] = JSON.parse(select);
       const fieldA = cardA[key];
       const fieldB = cardB[key];
-      return compareType(fieldA, fieldB, bool);
+      return compareType(fieldA, fieldB, isAsc);
     });
     return sortCards;
   }, [select, filteredCards]);
