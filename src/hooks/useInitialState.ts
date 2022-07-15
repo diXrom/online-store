@@ -8,7 +8,6 @@ export function useInitialState() {
   const [basket, setBasket] = useState<IBasket[]>([]);
   const [quantity, setQuantity] = useState<number[]>([0, 10]);
   const [price, setPrice] = useState<number[]>([0, 200]);
-  const [query, setQuery] = useState('');
   const [select, setSelect] = useState('');
   const [brand, setBrand] = useState<string[]>(() => []);
   const [size, setSize] = useState<number[]>(() => []);
@@ -34,9 +33,6 @@ export function useInitialState() {
   const changePrice = (e: Event, newPrice: number | number[]) => {
     if (Array.isArray(newPrice)) setPrice(newPrice);
   };
-  const changeQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
-  };
   const changeSelect = (e: SelectChangeEvent) => {
     setSelect(e.target.value);
   };
@@ -50,7 +46,6 @@ export function useInitialState() {
     filters,
     quantity,
     price,
-    query,
     select,
     changeBrand,
     changeSize,
@@ -58,10 +53,8 @@ export function useInitialState() {
     changePopularly,
     changeQuantity,
     changePrice,
-    changeQuery,
     changeSelect,
     setCards,
-    setQuery,
     setBasket,
   };
 }
