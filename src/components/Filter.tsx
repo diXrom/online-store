@@ -25,6 +25,8 @@ const Filters: FC<IFilters> = ({
   changeSize,
   changeProcessor,
   changePopularly,
+  setBasket,
+  setAllFilters,
 }) => {
   return (
     <Box sx={{ mt: 2 }}>
@@ -60,7 +62,9 @@ const Filters: FC<IFilters> = ({
               select={select}
               changeQuery={changeQuery}
               changeSelect={changeSelect}
+              setBasket={setBasket}
               setQuery={setQuery}
+              setAllFilters={setAllFilters}
             />
           </Item>
         </Grid>
