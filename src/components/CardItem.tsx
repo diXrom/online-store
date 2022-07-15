@@ -66,6 +66,7 @@ const CardItem: FC<ICardItem> = ({
       <Grid item xs={12} md={6} lg={3}>
         <Card
           sx={{
+            m: 'auto',
             maxWidth: 400,
             bgcolor: '#F7F7F7',
             border: active ? '2px solid #000' : '2px solid #F3E600',
@@ -92,7 +93,7 @@ const CardItem: FC<ICardItem> = ({
                   <ListItemText primary={'Производитель: ' + brand} />
                 </ListItem>
                 <ListItem disablePadding>
-                  <ListItemText primary={'Производитель GPU: ' + processor} />
+                  <ListItemText primary={'GPU: ' + processor} />
                 </ListItem>
                 <ListItem disablePadding>
                   <ListItemText primary={'Количество памяти: ' + size} />
