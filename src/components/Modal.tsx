@@ -6,7 +6,7 @@ const modal = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  maxWidth: 450,
   bgcolor: 'white',
   color: 'black',
   border: '3px solid #F3E600',
@@ -36,7 +36,7 @@ const ModalInfo: FC<IModalInfo> = ({ open, handleClose }) => (
           <Typography variant='h6' component='h2'>
             Извините, корзина заполнена
           </Typography>
-          <Typography  sx={{ mt: 2 }}>
+          <Typography variant='body1' sx={{ mt: 2 }}>
             Дальнейшие операции с корзиной недоступны, удалите некоторые товары или оформите текущий заказ
           </Typography>
         </Box>

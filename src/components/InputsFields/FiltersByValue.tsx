@@ -23,7 +23,7 @@ const FiltersByValue: FC<IFiltersByValue> = ({
   changeProcessor,
   changePopularly,
 }) => (
-  <Stack spacing={1}>
+  <Stack spacing={1} sx={{ width: '100%' }}>
     <Typography variant='subtitle1' color='black' component='h4' sx={{ flexGrow: 1 }}>
       Фильтры по значению
     </Typography>

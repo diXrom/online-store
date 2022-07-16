@@ -41,7 +41,7 @@ const ContorlFields: FC<IContorlFields> = ({
   setBasket,
   setAllFilters,
 }) => (
-  <Stack spacing={2.5}>
+  <Stack spacing={2.5} sx={{ width: '100%' }}>
     <SearchField query={query} changeQuery={changeQuery} setQuery={setQuery} />
     <FormControl fullWidth sx={{ textAlign: 'start' }}>
       <InputLabel>Сортировка</InputLabel>

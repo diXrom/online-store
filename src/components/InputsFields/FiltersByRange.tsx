@@ -9,7 +9,7 @@ export interface IFiltersByRange {
 }
 
 const FiltersByRange: FC<IFiltersByRange> = ({ quantity, price, changeQuantity, changePrice }) => (
-  <Stack spacing={2}>
+  <Stack spacing={2} sx={{ width: '100%' }}>
     <Typography variant='subtitle1' color='black' component='h4' sx={{ flexGrow: 1 }}>
       Фильтры по диапазону
     </Typography>

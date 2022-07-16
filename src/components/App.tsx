@@ -29,7 +29,7 @@ const App: FC = () => {
     <ThemeProvider theme={theme}>
       <ErrorBoundry>
         <Header basket={basket} />
-        <Container maxWidth='xl' sx={{ minHeight: 'calc(100vh - 175px)' }}>
+        <Container maxWidth='xl' sx={{ minHeight: 'calc(100vh - 155px)' }}>
           <Filter {...filters} {...query} setBasket={setBasket} />
           <CardList cards={availableItems} setBasket={setBasket} basket={basket} />
         </Container>
