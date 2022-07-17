@@ -9,7 +9,7 @@ import CardList from './CardList';
 import ModalInfo from './Modal';
 import ErrorBoundry from './ErrorBoundry';
 
-import useFilterByName from '../hooks/useFilterByName';
+import useSearchByName from '../hooks/useSearchByName';
 import useInitialFilters from '../hooks/useInitialFilters';
 import useLocalStorage from '../hooks/useLocalStorage';
 import useFilter from '../hooks/useFilter';
@@ -20,10 +20,11 @@ import { IBasket } from '../types';
 
 const App: FC = () => {
   const [basket, setBasket] = useLocalStorage<IBasket[]>([], 'basket');
+  const modal = useShowModal(basket);
+  
   const filters = useInitialFilters();
   const filteredCards = useFilter(filters);
-  const { availableItems, ...query } = useFilterByName(filteredCards);
-  const modal = useShowModal(basket);
+  const { availableItems, ...query } = useSearchByName(filteredCards);
 
   return (
     <ThemeProvider theme={theme}>

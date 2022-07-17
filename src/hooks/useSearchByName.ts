@@ -2,7 +2,7 @@ import useDebounce from './useDebounce';
 import useLocalStorage from './useLocalStorage';
 import { ICard } from '../types';
 
-const useFilterByName = (items: ICard[]) => {
+const useSearchByName = (items: ICard[]) => {
   const [query, setQuery] = useLocalStorage('', 'query');
   const queryDebounce = useDebounce(query, 400);
   const changeQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,4 +15,4 @@ const useFilterByName = (items: ICard[]) => {
   return { query, setQuery, changeQuery, availableItems };
 };
 
-export default useFilterByName;
+export default useSearchByName;
