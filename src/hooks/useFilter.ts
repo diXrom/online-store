@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
 
 import { data } from '../data/data_cards';
-import { compareType } from '../util/helperFunctions';
+import { compareType, filterByRange, filterByValue } from '../util/helperFunctions';
 import { ICard, IFilters } from '../types';
+
 
 const useFilter = ({
   brand,
@@ -13,14 +14,19 @@ const useFilter = ({
   quantity: [minTotal, maxTotal],
   price: [minSum, maxSum],
 }: IFilters) => {
-  const filteredCards = useMemo(() => data
-    .filter((card) => (brand.length ? brand.some((value) => card.brand === value) : true))
-    .filter((card) => (size.length ? size.some((value) => card.size === value) : true))
-    .filter((card) => (processor.length ? processor.some((value) => card.processor === value) : true))
-    .filter((card) => (popularly.length ? popularly.some((value) => card.popularly === value) : true))
-    .filter(({ quantity }) => maxTotal >= quantity && quantity >= minTotal)
-    .filter(({ price }) => maxSum * 1000 >= price && price >= minSum * 1000),
-  [brand, size, processor, popularly, maxTotal, minTotal, maxSum, minSum]);
+  const filteredCards = useMemo(() => {
+    const filteredData = filterByValue<ICard>(data, [
+      ['brand', brand],
+      ['size', size],
+      ['processor', processor],
+      ['popularly', popularly],
+    ]);
+    return filterByRange(filteredData, [
+      ['quantity', [minTotal, maxTotal]],
+      ['price', [minSum * 1000, maxSum * 1000]],
+    ]);
+  },
+  [brand, size, processor, popularly, minTotal, maxTotal, minSum, maxSum]);
   return useMemo(() => {
     if (!select) return filteredCards;
     const sortCards = [...filteredCards].sort((cardA, cardB) => {

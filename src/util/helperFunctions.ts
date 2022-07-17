@@ -16,4 +16,25 @@ const compareType = (itemA: string | number | boolean, itemB: string | number | 
   return 0;
 };
 
-export { getAmount, compareType };
+const filterByValue = <T>(arr: T[], filters: [keyof T, number[] | string[] | boolean[]][]) => {
+  return filters.reduce((acc, [key, filter]) => {
+    return acc.filter(item => filter.length ? filter.some((value) => {
+      const itemValue = item[key];
+      if (typeof itemValue === 'number' && typeof value === 'number') return itemValue === value;
+      if (typeof itemValue === 'string' && typeof value === 'string') return itemValue === value;
+      if (typeof itemValue === 'boolean' && typeof value === 'boolean') return itemValue === value;
+      return false;
+    }) : true);
+  }, arr);
+};
+const filterByRange = <T>(arr: T[], filters: [keyof T, [number, number]][]) => {
+  return filters.reduce((acc, [key, [min, max]]) => {
+    return acc.filter(item => {
+      const itemValue = item[key];
+      if (typeof itemValue === 'number') return max >= itemValue && itemValue >= min;
+      return false;
+    });
+  }, arr);
+};
+
+export { getAmount, compareType, filterByRange, filterByValue };
