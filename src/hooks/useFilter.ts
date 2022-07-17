@@ -13,8 +13,7 @@ const useFilter = ({
   price: [minSum, maxSum],
 }: IFilters) => {
   const filteredByValue = useMemo(() => {
-    const array = convertArrayByValue(filters);
-    const filteredData = filterByValue<ICard>(data, array);
+    const filteredData = filterByValue<ICard>(data, convertArrayByValue(filters));
     return filterByRange(filteredData, [
       ['quantity', [minTotal, maxTotal]],
       ['price', [minSum * CONVERT_THOUSAND, maxSum * CONVERT_THOUSAND]],
