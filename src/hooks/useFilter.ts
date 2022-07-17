@@ -4,7 +4,7 @@ import { data } from '../data/data_cards';
 import { compareType, filterByRange, filterByValue } from '../util/helperFunctions';
 import { ICard, IFilters } from '../types';
 
-
+const CONVERT_THOUSAND = 1000;
 const useFilter = ({
   brand,
   size,
@@ -23,7 +23,7 @@ const useFilter = ({
     ]);
     return filterByRange(filteredData, [
       ['quantity', [minTotal, maxTotal]],
-      ['price', [minSum * 1000, maxSum * 1000]],
+      ['price', [minSum * CONVERT_THOUSAND, maxSum * CONVERT_THOUSAND]],
     ]);
   },
   [brand, size, processor, popularly, minTotal, maxTotal, minSum, maxSum]);
