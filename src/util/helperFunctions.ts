@@ -1,3 +1,18 @@
+import { ObjectEntries, ObjectType, ICard } from '../types';
+
+function getTypedObjectEntries<OBJ_T extends ObjectType>(obj: OBJ_T): ObjectEntries<OBJ_T> {
+  return Object.entries(obj) as ObjectEntries<OBJ_T>;
+} // From https://stackoverflow.com/a/69019873
+
+const convertArrayByValue = (arr: string[]) => {
+  const arrParse: [keyof ICard, ICard[keyof ICard]][] = arr.map(item => JSON.parse(item));
+  const arrObject = arrParse.reduce((acc, [key, value]) => {
+    acc[key] = [...acc[key] || [], value];
+    return acc;
+  }, {} as Record<keyof ICard, ICard[keyof ICard][]>);
+  return getTypedObjectEntries(arrObject);
+};
+
 const getAmount = <T>(arr: T[], key: keyof T): number => {
   return arr.reduce((acc, item) => {
     const value = item[key];
@@ -6,7 +21,7 @@ const getAmount = <T>(arr: T[], key: keyof T): number => {
   }, 0);
 };
 
-const compareType = (itemA: string | number | boolean, itemB: string | number | boolean, isAsc: boolean) => {
+const compareType = <T,K>(itemA: T, itemB: K, isAsc: boolean) => {
   if (typeof itemA === 'string' && typeof itemB === 'string') {
     return isAsc ? itemB.localeCompare(itemA) : itemA.localeCompare(itemB);
   }
@@ -16,14 +31,11 @@ const compareType = (itemA: string | number | boolean, itemB: string | number | 
   return 0;
 };
 
-const filterByValue = <T>(arr: T[], filters: [keyof T, number[] | string[] | boolean[]][]) => {
+const filterByValue = <T>(arr: T[], filters: [keyof T, T[keyof T][]][]) => {
   return filters.reduce((acc, [key, filter]) => {
     return acc.filter(item => filter.length ? filter.some((value) => {
       const itemValue = item[key];
-      if (typeof itemValue === 'number' && typeof value === 'number') return itemValue === value;
-      if (typeof itemValue === 'string' && typeof value === 'string') return itemValue === value;
-      if (typeof itemValue === 'boolean' && typeof value === 'boolean') return itemValue === value;
-      return false;
+      return itemValue === value;
     }) : true);
   }, arr);
 };
@@ -37,4 +49,4 @@ const filterByRange = <T>(arr: T[], filters: [keyof T, [number, number]][]) => {
   }, arr);
 };
 
-export { getAmount, compareType, filterByRange, filterByValue };
+export { getAmount, compareType, filterByRange, filterByValue, convertArrayByValue };

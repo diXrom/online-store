@@ -12,19 +12,13 @@ const Filters: FC<IFilters> = ({
   price,
   query,
   select,
-  brand,
-  size,
-  processor,
-  popularly,
+  filters,
+  changeFilters,
   changeQuantity,
   changePrice,
   changeQuery,
   changeSelect,
   setQuery,
-  changeBrand,
-  changeSize,
-  changeProcessor,
-  changePopularly,
   setBasket,
   setAllFilters,
 }) => (
@@ -32,16 +26,7 @@ const Filters: FC<IFilters> = ({
     <Grid container spacing={2} columns={18}>
       <Grid item xs={18} md={18} lg={8}>
         <Item>
-          <FiltersByValue
-            brand={brand}
-            size={size}
-            processor={processor}
-            popularly={popularly}
-            changeBrand={changeBrand}
-            changeSize={changeSize}
-            changeProcessor={changeProcessor}
-            changePopularly={changePopularly}
-          />
+          <FiltersByValue filters={filters} changeFilters={changeFilters} />
         </Item>
       </Grid>
       <Grid item xs={18} md={9} lg={5}>

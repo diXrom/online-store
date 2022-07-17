@@ -15,11 +15,18 @@ export interface IBasket {
     price: number,
 }
 export interface IFilters {
-    brand: string[];
-    size: number[];
-    processor: string[];
-    popularly: boolean[];
+    filters: string[];
     quantity: number[];
     price: number[];
     select: string;
 }
+
+export type ObjectType = Record<PropertyKey, unknown>;
+
+export type PickByValue<OBJ_T, VALUE_T> = Pick<OBJ_T, {
+    [K in keyof OBJ_T]: OBJ_T[K] extends VALUE_T ? K : never
+}[keyof OBJ_T]>;
+
+export type ObjectEntries<OBJ_T> = {
+    [K in keyof OBJ_T]: [keyof PickByValue<OBJ_T, OBJ_T[K]>, OBJ_T[K]]
+}[keyof OBJ_T][];

@@ -23,10 +23,7 @@ export interface IContorlFields {
   setBasket: (value: React.SetStateAction<IBasket[]>) => void;
   setAllFilters: (
     selectInit?: string,
-    brandInit?: () => never[],
-    sizeInit?: () => never[],
-    processorInit?: () => never[],
-    popularlyInit?: () => never[],
+    filtersInit?: () => never[],
     quantityInit?: number[],
     priceInit?: number[],
   ) => void;
