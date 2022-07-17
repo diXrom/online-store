@@ -7,7 +7,6 @@ export const data = [
     processor: 'NVIDIA',
     size: 16,
     popularly: true,
-    amount:0,
     price: 162700,
   },
   {
@@ -18,7 +17,6 @@ export const data = [
     processor: 'NVIDIA',
     size: 12,
     popularly: false,
-    amount:0,
     price: 117490,
   },
   {
@@ -29,7 +27,6 @@ export const data = [
     processor: 'NVIDIA',
     size: 8,
     popularly: false,
-    amount:0,
     price: 79779,
   },
   {
@@ -40,7 +37,6 @@ export const data = [
     processor: 'NVIDIA',
     size: 12,
     popularly: true,
-    amount:0,
     price: 44803,
   },
   {
@@ -51,7 +47,6 @@ export const data = [
     processor: 'AMD',
     size: 16,
     popularly: true,
-    amount:0,
     price: 118561,
   },
   {
@@ -62,7 +57,6 @@ export const data = [
     processor: 'AMD',
     size: 16,
     popularly: false,
-    amount:0,
     price: 90057,
   },
   {
@@ -73,7 +67,6 @@ export const data = [
     processor: 'AMD',
     size: 12,
     popularly: false,
-    amount:0,
     price: 66041,
   },
   {
@@ -84,7 +77,6 @@ export const data = [
     processor: 'AMD',
     size: 8,
     popularly: true,
-    amount:0,
     price: 49999,
   },
   {
@@ -95,7 +87,6 @@ export const data = [
     processor: 'AMD',
     size: 8,
     popularly: false,
-    amount:0,
     price: 52990,
   },
   {
@@ -106,7 +97,6 @@ export const data = [
     processor: 'NVIDIA',
     size: 8,
     popularly: false,
-    amount:0,
     price: 33240,
   },
 ];
