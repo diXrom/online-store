@@ -7,9 +7,10 @@ import { IBasket } from '../types';
 
 interface IHeader {
   basket: IBasket[];
+  setBasketOpen: () => void;
 }
 
-const Header: FC<IHeader> = ({ basket }) => (
+const Header: FC<IHeader> = ({ basket, setBasketOpen }) => (
   <Container maxWidth='xl'>
     <AppBar position='static' sx={{ borderRadius: 1 }}>
       <Toolbar sx={{ paddingTop: 1, paddingBottom: 1, borderRadius: 2 }}>
@@ -20,7 +21,7 @@ const Header: FC<IHeader> = ({ basket }) => (
           Online Store
         </Typography>
         <Badge color='info' badgeContent={getAmount(basket, 'amount')} overlap='circular'>
-          <IconButton edge='start' color='inherit'>
+          <IconButton edge='start' color='inherit' onClick={setBasketOpen}>
             <ShoppingCartOutlined fontSize='large' />
           </IconButton>
         </Badge>

@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react';
 
 import Header from '../components/Header';
 
+const setBasketOpen = jest.fn();
+
 const basket = [
   {
     id: 1,
@@ -19,12 +21,12 @@ const basket = [
 
 describe('Header component', () => {
   it('Header render', () => {
-    render(<Header basket={[]} />);
+    render(<Header basket={[]} setBasketOpen={setBasketOpen} />);
 
     expect(screen.getByText(/online store/i)).toBeInTheDocument();
   });
   it('Header basket amount', () => {
-    render(<Header basket={basket} />);
+    render(<Header basket={basket} setBasketOpen={setBasketOpen}/>);
 
     expect(screen.getByText(/5/i)).toBeInTheDocument();
   });
