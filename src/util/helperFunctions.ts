@@ -2,7 +2,7 @@ import { ObjectEntries, ObjectType, ICard } from '../types';
 
 function getTypedObjectEntries<OBJ_T extends ObjectType>(obj: OBJ_T): ObjectEntries<OBJ_T> {
   return Object.entries(obj) as ObjectEntries<OBJ_T>;
-} // From https://stackoverflow.com/a/69019873
+}
 
 const convertArrayByValue = (arr: string[]) => {
   const arrParse: [keyof ICard, ICard[keyof ICard]][] = arr.map(item => JSON.parse(item));
