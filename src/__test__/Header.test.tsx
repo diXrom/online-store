@@ -20,13 +20,13 @@ const basket = [
 ];
 
 describe('Header component', () => {
-  it('Header render', () => {
+  it('should render Header', () => {
     render(<Header basket={[]} setBasketOpen={setBasketOpen} />);
 
     expect(screen.getByText(/online store/i)).toBeInTheDocument();
   });
-  it('Header basket amount', () => {
-    render(<Header basket={basket} setBasketOpen={setBasketOpen}/>);
+  it('should be amount on Header basket', () => {
+    render(<Header basket={basket} setBasketOpen={setBasketOpen} />);
 
     expect(screen.getByText(/5/i)).toBeInTheDocument();
   });

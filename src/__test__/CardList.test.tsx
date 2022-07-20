@@ -17,12 +17,12 @@ const data = [
 ];
 
 describe('CardList component', () => {
-  it('CardList render with data', () => {
+  it('should render CardList with data', () => {
     render(<CardList cards={data} basket={[]} setBasket={setBasket} />);
 
     expect(screen.getByText(/GIGABYTE RTX 3090/i)).toBeInTheDocument();
   });
-  it('CardList render with empty data', () => {
+  it('should render CardList with empty data', () => {
     render(<CardList cards={[]} basket={[]} setBasket={setBasket} />);
 
     expect(screen.getByText(/Извините, совпадений не обнаружено/i)).toBeInTheDocument();

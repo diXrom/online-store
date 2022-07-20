@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import ContorlFields from '../components/InputsFields/ContorlFields';
+import ControlFields from '../components/InputsFields/ControlFields';
 
 const changeQuery = jest.fn();
 const changeSelect = jest.fn();
@@ -9,10 +9,10 @@ const setQuery = jest.fn();
 const setBasket = jest.fn();
 const setAllFilters = jest.fn();
 
-describe('Search component', () => {
-  it('Search render', () => {
+describe('ControlFields component', () => {
+  it('should render ControlFields', () => {
     render(
-      <ContorlFields
+      <ControlFields
         query={'поиск'}
         select={''}
         changeQuery={changeQuery}
@@ -24,9 +24,9 @@ describe('Search component', () => {
     );
     expect(screen.getByLabelText(/поиск/i)).toBeInTheDocument();
   });
-  it('Search function onChange works', () => {
+  it('should works onChange function on ControlFields', () => {
     render(
-      <ContorlFields
+      <ControlFields
         query={''}
         select={''}
         changeQuery={changeQuery}
