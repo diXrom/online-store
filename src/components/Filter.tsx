@@ -4,9 +4,9 @@ import { Box, Grid } from '@mui/material';
 import Item from '../util/Item';
 import FiltersByValue, { IFiltersByValue } from './InputsFields/FiltersByValue';
 import FiltersByRange, { IFiltersByRange } from './InputsFields/FiltersByRange';
-import ContorlFields, { IContorlFields } from './InputsFields/ContorlFields';
+import ControlFields, { IControlFields } from './InputsFields/ControlFields';
 
-interface IFilters extends IFiltersByValue, IContorlFields, IFiltersByRange {}
+interface IFilters extends IFiltersByValue, IControlFields, IFiltersByRange {}
 const Filters: FC<IFilters> = ({
   quantity,
   price,
@@ -41,7 +41,7 @@ const Filters: FC<IFilters> = ({
       </Grid>
       <Grid item xs={18} md={9} lg={5}>
         <Item>
-          <ContorlFields
+          <ControlFields
             query={query}
             select={select}
             changeQuery={changeQuery}

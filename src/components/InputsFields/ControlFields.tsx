@@ -14,7 +14,7 @@ import {
 import SearchField from './SearhField';
 import { IBasket } from '../../types';
 
-export interface IContorlFields {
+export interface IControlFields {
   query: string;
   select: string;
   changeQuery: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -29,7 +29,7 @@ export interface IContorlFields {
   ) => void;
 }
 
-const ContorlFields: FC<IContorlFields> = ({
+const ControlFields: FC<IControlFields> = ({
   query,
   select,
   changeQuery,
@@ -76,4 +76,4 @@ const ContorlFields: FC<IContorlFields> = ({
   </Stack>
 );
 
-export default ContorlFields;
+export default ControlFields;
