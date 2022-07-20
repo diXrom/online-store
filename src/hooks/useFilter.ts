@@ -4,7 +4,7 @@ import { data } from '../data/data_cards';
 import { compareType, convertArrayByValue, filterByRange, filterByValue } from '../util/helperFunctions';
 import { ICard, IFilters } from '../types';
 
-const CONVERT_THOUSAND = 1000;
+const convertNumberToThousand = (num: number) => 1000 * num;
 
 const useFilter = ({
   filters,
@@ -16,7 +16,7 @@ const useFilter = ({
     const filteredData = filterByValue<ICard>(data, convertArrayByValue(filters));
     return filterByRange(filteredData, [
       ['quantity', [minTotal, maxTotal]],
-      ['price', [minSum * CONVERT_THOUSAND, maxSum * CONVERT_THOUSAND]],
+      ['price', [convertNumberToThousand(minSum), convertNumberToThousand(maxSum)]],
     ]);
   },
   [filters, minTotal, maxTotal, minSum, maxSum]);
