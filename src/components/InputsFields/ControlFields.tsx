@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import {
   Box,
   Button,
@@ -76,4 +76,4 @@ const ControlFields: FC<IControlFields> = ({
   </Stack>
 );
 
-export default ControlFields;
+export default memo(ControlFields);

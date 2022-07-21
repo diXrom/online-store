@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { Box, Grid } from '@mui/material';
 
 import Item from '../util/Item';
@@ -56,4 +56,4 @@ const Filters: FC<IFilters> = ({
   </Box>
 );
 
-export default Filters;
+export default memo(Filters);

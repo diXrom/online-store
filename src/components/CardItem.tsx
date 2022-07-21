@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, memo, useEffect, useState } from 'react';
 import {
   Card,
   CardContent,
@@ -134,4 +134,4 @@ const CardItem: FC<ICardItem> = ({
   );
 };
 
-export default CardItem;
+export default memo(CardItem);
